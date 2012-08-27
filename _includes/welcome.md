@@ -37,5 +37,5 @@ _PHP: The Right Way_ има банери и снимки които можете
 
 [Разгледай банерите][2]
 
-[1]: https://github.com/codeguy/php-the-right-way/tree/gh-pages
+[1]: https://github.com/metala/php-the-right-way-l10n-bg_BG/tree/gh-pages
 [2]: /banners.html
