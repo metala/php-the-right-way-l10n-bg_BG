@@ -16,20 +16,10 @@
         <link rel="stylesheet" href="/styles/all.css"/>
         <link rel="stylesheet" href="/styles/syntax.css"/>
         <link rel="icon" href="/images/favicon.png" type="image/png"/>
-        <script>
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-362072-7']);
-        _gaq.push(['_trackPageview']);
-        (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
-        </script>
     </head>
     <body>
         <nav class="site-navigation">
-            <div class="build-date">Last Updated: {{ site.time }}</div>
+            <div class="build-date">Последно обновен: {{ site.time }}</div>
             <ul>
                 <li><a href="/#site-header">Начало</a></li>
                 {% assign lastIsChild = false %}
