@@ -1,11 +1,11 @@
 ---
-title: Use the Current Stable Version (5.4)
+title: Използвайте на последната стабилна версия (5.4)
 isChild: true
 ---
 
-## Use the Current Stable Version (5.4)
+## Използвайте на последната стабилна версия (5.4)
 
-If you are just getting started with PHP make sure to start with the current stable release of [PHP 5.4][php-release]. PHP has made great strides adding powerful [new features](#language_highlights) over the last few years. Don't let the minor version number difference between 5.2 and 5.4 fool you, it represents _major_ improvements. If you are looking for a function or it's usage, the documentation on the [php.net][php-docs] website will have the answer.
+Ако сега започвате със PHP бъдете сигурни да ползвате последната версия - [PHP 5.4][php-release]. PHP направи големи крачки в добавянето на големи [нови възможности](#language_highlights) в последните няколко години. Нека малката разлика във версията между 5.2 и 5.4 не Ви заблуждава, това са _сериозни_ подобрения. Ако търсите фунцкия или как да я ползвате, документацията на [php.net][php-docs] ще ви предостави отговора.
 
 [php-release]: http://www.php.net/downloads.php
 [php-docs]: http://www.php.net/manual/en/

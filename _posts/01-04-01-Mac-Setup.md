@@ -1,20 +1,21 @@
 ---
+title: Настройка за Mac
 isChild: true
 ---
 
-## Mac Setup
+## Настройка за Mac
 
-OSX comes prepackaged with PHP but it is normally a little behind the latest stable. Lion comes with PHP 5.3.6 and
-Mountain Lion has 5.3.10.
+OSX идва с пакет на PHP който обикновено не е последната версия на PHP. Lion идва с PHP 5.3.6, 
+Mountain Lion е с 5.3.10.
 
-To update PHP on OSX you can get it installed through a number of Mac [package managers][mac-package-managers], with
-[php-osx by Liip][php-osx-downloads] being recommended.
+Можете да обновите PHP на OSX чрез множество Mac [пакетни мениждъри][mac-package-managers], като
+[php-osx от Liip][php-osx-downloads] е препоръчителен.
 
-The other option is to [compile it yourself][mac-compile], in that case be sure to have installed either Xcode or
-Apple's substitute ["Command Line Tools for Xcode"][apple-developer] downloadable from Apple's Mac Developer Center.
+Друга възможност е [да си го компилирате сами][mac-compile], в този случай трябва да сте инсталирали предварително или Xcode или
+заместращите го ["Command Line Tools for Xcode"][apple-developer] от Mac Developer Center на Apple.
 
-For a complete "all-in-one" package including PHP, Apache web server and MySQL database, all this with a nice control
-GUI, try [MAMP][mamp-downloads].
+За пълен "всичко в едно" пакет включващ PHP, Apache уеб сървър и MySQL базаданни, всичко това с приятено графично приложение за управление,
+пробвайте [MAMP][mamp-downloads].
 
 [mac-package-managers]: http://www.php.net/manual/en/install.macosx.packages.php
 [mac-compile]: http://www.php.net/manual/en/install.macosx.compile.php

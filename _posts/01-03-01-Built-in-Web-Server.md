@@ -1,14 +1,14 @@
 ---
-title: Built-in Web Server
+title: Вграденият уеб сървър
 isChild: true
 ---
 
-## Built-in web server
+## Вграденият уеб сървър
 
-You can start learning PHP without the hassle of installing and configuring a full-fledged web server (PHP 5.4 required). To start the server, run the following from your terminal in your project's web root:
+Можете да започнете изучаването на PHP без да се налага да инсталирате или конфигурирате пълен уеб сървър. Единственото изискване е да имате PHP 5.4 или нагоре. За да стартирате вградения сървър, намирайки се уеб директорията, трябва да напишете следното в терминала/командения ред:
 
     > php -S localhost:8000
 
-* [Learn about the built-in, command line web server][cli-server]
+* [Научете повече за вграденият уеб сървър][cli-server]
 
 [cli-server]: http://www.php.net/manual/en/features.commandline.webserver.php
