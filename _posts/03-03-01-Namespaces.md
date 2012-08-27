@@ -1,19 +1,25 @@
 ---
+title: Пространства от имена
 isChild: true
 ---
 
-## Namespaces
+## Пространствата от имена* (namespaces)
 
-As mentioned above, the PHP community has a lot of developers creating lots of code. This means that one library's PHP code may use the same class name as another library. When both libraries are used in the same namespace, they collide and cause trouble.
+Както е споменато по-горе, PHP общността има много разработчици създаващи много код. Това означава че една библиотека може да има един и същи клас като друга библиотека. Когато двете библиотеки са използвани в едно и също пространство от имена, те
+се сблъскват и изниква грешка.
 
-_Namespaces_ solve this problem. As described in the PHP reference manual, namespaces may be compared to operating system directories that _namespace_ files; two files with the same name may co-exist in separate directories. Likewise, two PHP classes with the same name may co-exist in separate PHP namespaces. It's as simple as that.
+_Областите от имена_ решават този проблем. Както е описано в ръководството на PHP, опсатите от имена могат да бъдат сравнени като директории в операционна система; two файла със едно и също име могат да съществуват в различни директории. Аналогично, два класа в PHP могат да съществуват едновременно в отделни области от имена. 
 
-It is important for you to namespace your code so that it may be used by other developers without fear of colliding with other libraries.
+Важно е да поставите кода си в област от имена за да може другите разработчици да позлват вашия код, без да се страхуват от сблъсък/препокриване на имена.
 
-One recommended way to use namespaces is outlined in [PSR-0][psr0], which aims to provide a standard file, class and namespace convention to allow plug-and-play code.
+Един от препоръчителните начини е описан в [PSR-0][psr0], който цели да предостави стандартна конвенция за иеманта на файл, клас и област от имена за да предостави лесен за вграждане код.
 
-* [Read about Namespaces][namespaces]
-* [Read about PSR-0][psr0]
+* [прочети относно пространствата от имена][namespaces]
+* [Прочети относно PSR-0][psr0]
 
-[namespaces]: http://php.net/manual/en/language.namespaces.php
+\* Терминът е взет от документацията на [php.net][namespaces-definition]. Често се ползват и термините "именовани пространства" и "области от имена" да означат същото нещо. 
+
+
+[namespaces]: http://www.php.net/manual/bg/language.namespaces.php
+[namespaces-definition]: http://php.net/manual/bg/language.namespaces.definition.php
 [psr0]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md
