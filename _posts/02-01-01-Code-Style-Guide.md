@@ -1,26 +1,31 @@
-# Code Style Guide
+---
+title: Стил на писане на код
+---
 
-The PHP community is large and diverse, composed of innumerable libraries, frameworks, and components. It is common for
-PHP developers to choose several of these and combine them into a single project. It is important that PHP code adhere
-(as close as possible) to a common code style to make it easy for developers to mix and match various libraries for
-their projects.
+# Ръководсвто за стил на писане на код
 
-The [Framework Interop Group][fig] (formerly known as the 'PHP Standards Group') has proposed and approved a series of
-style recommendations, known as [PSR-0][psr0], [PSR-1][psr1] and [PSR-2][psr2]. Don't let the funny names confuse you,
-these recommendations are merely a set of rules that some projects like Drupal, Zend, CakePHP, phpBB, AWS SDK, FuelPHP,
-Lithium, etc are starting to adopt. You can use them for your own projects, or continue to use your own personal style.
+Общонстта на PHP е голяма и разнообразна, съставена от неизброимо много библиотеки, рамки (frameworks) и компоненти.
+Често срещано е за PHP разработчик да избере няколко от тези и да ги обедини в един проект. За това  e важно PHP кода
+да се придържа (възможно най-много) до общ сттил на писане за да е слено за разработчиците да смесват код от различни
+библиотеки за техните проекти.
 
-Ideally you should write PHP code that adheres to one or more of these standards so that other developers can easily
-read and work with your code. They all add on to the recommendation before, so using PSR-1 requires PSR-0, but does
-not require PSR-2.
+[Framework Interop Group][fig] (преди това известна като 'PHP Standards Group') предложи и удобри серия от препоръки 
+за стил, известни като [PSR-0][psr0], [PSR-1][psr1] и [PSR-2][psr2]. Нека интересните имена не ви заблуждават, това са
+препоръки съдържащи набор от правила за писане на код, които заповат да използват от някои проекти като Drupal, Zend,
+CakePHP, phpBB, AWS SDK, FuelPHP, Lithium и др. Можете да го използвате за вашите собствни проекти или да продължите да
+ползвате свой собствен стил.
 
-* [Read about PSR-0][psr0]
-* [Read about PSR-1][psr1]
-* [Read about PSR-2][psr2]
+В най-добрия случай трябва да пишете PHP код, който отговаря на един или повече от тези стандарти, така че другите
+разработчици лесно да могат да четат и работят с вашия код. Веки един от тези стандарти надгражда предходния,
+т.е. PSR-1 изисква PSR-0, но не изисква PSR-2.
 
-You can use the [phpcs-psr][phpcs-psr] sniff for [PHP_CodeSniffer][phpcs] to check code against these recommendations.
-Use Fabien Potencier's [PHP Coding Standards Fixer][phpcsfixer] to automatically modify your code syntax so that it
-conforms with these standards, saving you from fixing each problem by hand.
+* [Прочети относно PSR-0][psr0]
+* [Прочети относно PSR-1][psr1]
+* [Прочети относно PSR-2][psr2]
+
+Можете да ползвате [phpcs-psr][phpcs-psr] за [PHP_CodeSniffer][phpcs] за да проверявате код за съответствие със стандартите.
+Използвайте [PHP Coding Standards Fixer][phpcsfixer] на Fabien Potencier за автоматично редактиране на вашия код за да отговаря
+на стандартите, решавайки проблема със оправянето на всяко разминаване от стандарта самостоятелно.
 
 [fig]: http://www.php-fig.org/
 [psr0]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md
