@@ -1,5 +1,5 @@
 ---
-tilte:   Основите
+title:   Основите
 isChild: true
 ---
 
