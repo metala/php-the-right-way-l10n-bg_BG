@@ -1,61 +1,58 @@
 ---
+title:   Филтриране на данни
 isChild: true
 ---
 
-## Data Filtering
+## Филтриране на данни
 
-Never ever (ever) trust foreign input introduced to your PHP code. Always sanitize and validate
-foreign input before using it in code. The `filter_var` and `filter_input` functions can sanitize text and validate text formats (e.g.
-email addresses).
+Никога, ама никога, не се доверявайте на външния вход предоставен на вашият PHP код. Винаги филтрирайте и валидирайте 
+входа преди да го използвате в кода си. Фунцкиите като `filter_var` и `filter_input` ви помагат да филтрирате и валидирате входа за основните типоер формати (пр.
+email адрес, число или др.).
 
-Foreign input can be anything: `$_GET` and `$_POST` form input data, some values in the `$_SERVER`
-superglobal, and the HTTP request body via `fopen('php://input', 'r')`. Remember, foreign input is not
-limited to form data submitted by the user. Uploaded and downloaded files, session values, cookie data,
-and data from third-party web services are foreign input, too.
+Външния вход може да бъде всичко: `$_GET` или `$_POST` данни от форма, някакви стойности в свръхглобалната променлива `$_SERVER`,
+както и тялото на HTTP заявка взето чрез: `fopen('php://input', 'r')`. Запомете външният вход не е ограничен до данни от форма
+пуснали от потребителя. Качените и свалени файлове, сесийни стойности, данни в бисквитките и външни данни от уеб услуги на трети страни също.
 
-While foreign data can be stored, combined, and accessed later, it is still foreign input. Every
-time you process, output, concatenate, or include data in your code, ask yourself if
-the data is filtered properly and can it be trusted.
+Когато външни данни са съхранени, комбинирани и достъпени по-късно, те все още са вуншен вход. Всеки път
+когато обработвате, извеждате, сбирате и включвате данни в кода си, попотайте се "Данните филтрирани ли са правилно и мога ли да им се доверя?"
 
-Data may be _filtered_ differently based on its purpose. For example, when unfiltered foreign input is passed
-into HTML page output, it can execute HTML and JavaScript on your site! This is known as Cross-Site
-Scripting (XSS) and can be a very dangerous attack. One way to avoid XSS is to sanitize all HTML tags
-in the input by removing tags or escaping them into HTML entities.
+Данните могат да се _филтрират_ различно в зависимост от тяхното приложение. Например, когато нефилтрирани входни данни са подадени
+на изхода на HTML страница, това може да изпълни HTML и JavaScript във вашият сайт! Тази атака е още известна като Cross-Site
+Scripting (XSS) и и не е маловажна, защото може да извлече много данни от потребителите без да знаят. Един начин за предотвратяване на XSS е да се филтрират всички HTML тагове
+от входа чрез премахването им или екранитането им.
 
-Another example is passing options to be executed on the command line. This can be extremely dangerous
-(and is usually a bad idea), but you can use the built-in `escapeshellarg` function to sanitize the executed
-command's arguments.
+Друг пример е предаването на опции за изпълнение в команден ред. Това може да е много опастно
+(и най-често е много лоша идея), но може да ползвате вдградената фунцкия `escapeshellarg` за
+екраниране на аргументите на командата.
 
-One last example is accepting foreign input to determine a file to load from the filesystem. This can be exploited by
-changing the filename to a file path. You need to remove "/", "../", [null bytes][6], or other characters from the file path so it can't
-load hidden, non-public, or sensitive files.
+Един последен пример e приемането на външен вход за определяне на файл за качване към файловата система. Това може да бъде
+експоатирано, като се смени името на файла да бъде файлов път. Товага трбва да премахнете "/" или "../" или [null байтове][6], или др. символи от името/пътя на файла за да не презапише скрити, непублични или други важни файлове.
 
-* [Learn about data filtering][1]
-* [Learn about `filter_var`][4]
-* [Learn about `filter_input`][5]
-* [Learn about handling null bytes][6]
+* [Научи повече за филтрирането на данни][1]
+* [Научи повече за `filter_var`][4]
+* [Научи повече за `filter_input`][5]
+* [Научи повече за работата с null байтове][6]
 
-### Sanitization
+### Филтриране
 
-Sanitization removes (or escapes) illegal or unsafe characters from foreign input.
+Филтрирането на данните премахва (или екранира) невалидните и опасни символи от външния вход. 
 
-For example, you should sanitize foreign input before including the input in HTML or inserting it
-into a raw SQL query. When you use bound parameters with [PDO](#databases), it will
-sanitize the input for you.
+Например, вие трябва да филтрирате входа преди включването му в HTML или вкарването му в суров вид в SQL
+заявка. Ако ползвате обвързани параметри с [PDO](#databases), то ще филтрира входа вместо вас.
 
-Sometimes it is required to allow some safe HTML tags in the input when including it in the HTML
-page. This is very hard to do and many avoid it by using other more restricted formatting like
-Markdown or BBCode, although whitelisting libraries like [HTML Purifier][html-purifier] exists for
-this reason.
+Понякога е нужно да позволите някои безопастни HTML тагове във входа вкогато го включвате в HTML
+страница. Това обикновено е много трудоемко и често хората го избягват, като използват по-рестриктивни
+формати като Markdown или BBCode, въпреки че съществуват филтриращи библиотеки, като [HTML Purifier][html-purifier]
+поради тази причина.
 
-[See Sanitization Filters][2]
+[Прочети повече за филтрите на данни][2]
 
-### Validation
+### Валидация
 
-Validation ensures that foreign input is what you expect. For example, you may want to validate an
-email address, a phone number, or age when processing a registration submission.
+Валидацията подсигурява външния вход е точно такъв вакъвто очаквате. Например, може да искате да
+валидирате email адрес, телефонен номер, дата на раждане като обработвате примерно регистрационна форма.
 
-[See Validation Filters][3]
+[Прочети повече за валидаторите на данни][3]
 
 [1]: http://www.php.net/manual/en/book.filter.php
 [2]: http://www.php.net/manual/en/filter.filters.sanitize.php

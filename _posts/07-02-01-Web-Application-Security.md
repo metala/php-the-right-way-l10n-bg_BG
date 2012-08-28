@@ -1,13 +1,15 @@
 ---
+title:   Сигурност на уеб приложенията
 isChild: true
 ---
 
-## Web Application Security
+## Сигурност на уеб приложенията
 
-There are bad people ready and willing to exploit your web application. It is important that you
- take necessary precautions to harden your web application's security. Luckily, the fine folks at [The Open Web Application Security Project][1] (OWASP) have compiled a comprehensive list of known security issues and methods to protect yourself against them. This is a must read for the security-conscious developer.
+Има лоши хора, които са готови да хакнат вашите приложения. Много е важно вие да вземете необходимите мерки за
+за да подсилите сигурността на вашето приложение. За щастие, хората от [The Open Web Application Security Project][1] (OWASP) са съставили пълен списък с известните проблеми в сигурността и методи за защита от тях.
+Това трябва да се прочете от всеки запознат със сигурнсотта програмист.
 
-* [Read the OWASP Security Guide][2]
+* [Прочети наръчника по сигурност на OWASP][2]
 
 [1]: https://www.owasp.org/
 [2]: https://www.owasp.org/index.php/Guide_Table_of_Contents

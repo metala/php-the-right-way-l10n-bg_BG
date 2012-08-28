@@ -1,19 +1,20 @@
 ---
+title:   Хеширане на пароли чрез Bcrypt
 isChild: true
 ---
 
-## Password Hashing with Bcrypt
+## Хеширане на пароли чрез Bcrypt
 
-Eventually everyone builds a PHP application that relies on user login. Usernames and (hashed) passwords are stored in a database and later used to authenticate users upon login.
+в края на краищата всеки изгражда PHP приложение което зависи от потребителски вход. Потребителите и (хешираните) паролите се съхраняват в база от данни и после се ползват за удостоверяване (автентикиране) на потребителите при вход.
 
-It is important that you properly _hash_ passwords that are stored in a database. If passwords are not hashed, and your database is hacked or accessed by an unauthorized third-party, all user accounts are now compromised.
+Много е важно да _хеширате_ правилно пароллите които се пазят в базата данни. Ако паролите не са хеширани и базата ви е хакната или свалена от неоторизирано трето лице, всички потребителски профили/акаунти са компроментирани.
 
-**Hash passwords with Bcrypt**. It's super simple, and (for all intents and purposes) Bcrypt makes it impossible for someone to reverse-engineer the plain-text version of a password should the database be compromised.
+**Хеширане на пароли чрез Bcrypt**. По много лесен начин, Bcrypt ви прави невъзможно някой да обрати процеса процеса на криптиране на паролата, дори и ако базата данни е компроментирана.
 
-There are several Bcrypt libraries for PHP that you may use.
+Имя няколко Bcrypt библиотеки за PHP, които може да ползвате.
 
-* [Read "How to Safely Store a Password" by Coda Hale][3]
-* [Use Bcrypt with PHPass][4]
+* [Прочетете "How to Safely Store a Password" от Coda Hale][3]
+* [Използване на Bcrypt с PHPass][4]
 
 [3]: http://codahale.com/how-to-safely-store-a-password/
 [4]: http://www.openwall.com/phpass/

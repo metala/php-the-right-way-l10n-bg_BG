@@ -1,33 +1,34 @@
 ---
+title:   Докладване на грешки
 isChild: true
 ---
 
-## Error Reporting
+## Докладване на грешки
 
-Error logging can be useful in finding the problem spots in your application, but it can also expose information about 
-the structure of your application to the outside world. To effectively protect your application from issues that could 
-be caused by the output of these messages, you need to configure your server differently in development versus 
-production (live).
+Записването на грешките в лог файл може да бъде полезе начин за търсене на проблеми в вашето приложение, но също може да
+разкрие за външния свят информация за структурата на вашето приложение. За ефективна защита на приложението от проблеми
+свързани с извеждането на тези съобщения, вие трябва да конфигурирате съвръра различно в зависимост от средата на която
+се изпълнява приложението - т.е. развойна среда и реална среда.
 
-### Development
+### Развойна среда
 
-To show errors in your <strong>development</strong> environment, configure the following settings in your `php.ini`:
+За да показвате грешките във вашата <strong>развойна</strong> среда, задайте следните настройки в `php.ini`:
 
 - display_errors: On
 - error_reporting: E_ALL
 - log_errors: On
 
-### Production
+### Реална среда
 
-To hide the errors on your <strong>production</strong> environment, configure your `php.ini` as:
+За да скриете грешките в <strong>реална</strong> среда, настройте `php.ini` както следва:
 
 - display_errors: Off
 - error_reporting: E_ALL
 - log_errors: On
 
-With these settings in production, errors will still be logged to the error logs for the web server, but will not be 
-shown to the user. For more information on these settings, see the PHP manual:
+С тези настройки за реална среда, грешките ще бъдат запосвани в лог файла за грешки на сървъра и няма да бъдат
+показвани на потребителите. За повече информация, посъветвайте се с документацията на PHP:
 
-* [Error_reporting](http://www.php.net/manual/en/errorfunc.configuration.php#ini.error-reporting)
-* [Display_errors](http://www.php.net/manual/en/errorfunc.configuration.php#ini.display-errors)
-* [Log_errors](http://www.php.net/manual/en/errorfunc.configuration.php#ini.log-errors)
+* [еrror_reporting](http://www.php.net/manual/en/errorfunc.configuration.php#ini.error-reporting)
+* [display_errors](http://www.php.net/manual/en/errorfunc.configuration.php#ini.display-errors)
+* [log_errors](http://www.php.net/manual/en/errorfunc.configuration.php#ini.log-errors)
