@@ -1,34 +1,32 @@
 ---
-title: Databases
+title: Бази данни
 ---
 
-# Databases
+# Бази данни
 
-Many times your PHP code will use a database to persist information. You have a few options to connect and interact
-with your database. The recommended option _until PHP 5.1.0_ was to use native drivers such as [mysql][mysql], [mysqli][mysqli], [pgsql][pgsql], etc.
+Много пъти вашият PHP код ще ползва база от данни за да записва информацията. Имяте няколко избора за свързване и работа
+с вашата база данни. Препоръчителната опция _до PHP 5.1.0_ беше да се позлват естествените разширения [mysql][mysql], [mysqli][mysqli], [pgsql][pgsql] и др.
 
-Native drivers are great if you are only using ONE database in your application, but if, for example, you are using MySQL and a little bit of MSSQL,
-or you need to connect to an Oracle database, then you will not be able to use the same drivers. You'll need to learn a brand new API for each
-database &mdash; and that can get silly.
+Естествените драйвери са страхотни, ако ползвате само ЕДНА база данни в вашето приложение, но ако например ползвате MySQL и малко MSSQL,
+или имате нужда да се свържете с база от данни на Oracle, тогава няма да имате взможността да ползвате едни и същи драйвери. Ще трябва да се запознаете с чисто ново API за всяка един тип база от данни &mdash; и това може да създаде много проблеми.
 
-As an extra note on native drivers, the mysql extension for PHP is no longer in active development, and the official status since PHP 5.4.0 is
-"Long term deprecation". This means it will be removed within the next few releases, so by PHP 5.6 (or whatever comes after 5.5) it may well be gone. If you are using `mysql_connect()` and `mysql_query()` in your applications then you will be faced with a rewrite at some point down the
-line, so the best option is to replace mysql usage with mysqli or PDO in your applications within your own development shedules so you won't
-be rushed later on. _If you are starting from scratch then absolutely do not use the mysql extension: use the [MySQLi extension][mysqli], or use PDO._
+Допълнителна бележка към естествените драйвери: _mysql_ разширението за PHP вече не се разработва активно, и официалното състояние в версия PHP 5.4.0 е
+"В дълъг процес на премахване". Това означава че ще бъде премахнат в следващите няколко версии, т.е. до PHP 5.6 (или което идва след 5.5) може би вече няма да го има. Ако ползвате `mysql_connect()` и `mysql_query()` във вашите приложения, тогава ще трябва да ги пренапишете по някое време, като
+най-доброто решение е да заместите ползването на mysql с mysqli или PDO още по време на процеса на разработа за да не се налага да бързате впоследствие. _If you are starting from scratch then absolutely do not use the mysql extension: use the [MySQLi extension][mysqli], or use PDO._
 
-* [PHP: Choosing an API for MySQL](http://php.net/manual/en/mysqlinfo.api.choosing.php)
+* [PHP: Избор на API за MySQL](http://php.net/manual/en/mysqlinfo.api.choosing.php)
 
 ## PDO
 
-PDO is a database connection abstraction library &mdash;  built into PHP since 5.1.0 &mdash; that provides a common interface to talk with
-many different databases. PDO will not translate your SQL queries or emulate missing features; it is purely for connecting to multiple types
-of database with the same API.
+PDO е библиотека за абстрация на връзката с база данни &mdash; вдрагена в PHP от версия 5.1.0 &mdash; която предоставя общ интерфейс за работа
+с много различни бази от данни. PDO не превежда/транслира вашите заявки и не емулира липсващи възможности, та служи само за свързване с
+множество типове разлини бази от данни изпозлвайки общо API.
 
-More importantly, `PDO` allows you to safely inject foreign input (e.g. IDs) into your SQL queries without worrying about database SQL injection attacks.
-This is possible using PDO statements and bound parameters.
+По-важно, `PDO` ти позволява да безопастно да вкарваш външен вход (пр. ID-та) в SQL заявките без да се притесняваш от SQL injection.
+Това е възможно, чрез параметризирани заявки (PDO statement) и обвързани параметри (bound parameters).
 
-Let's assume a PHP script receives a numeric ID as a query parameter. This ID should be used to fetch a user record from a database. This is the `wrong`
-way to do this:
+
+Нека предположим, че PHP скрипт получава числово ID като параметър на заявката. Това ID трябва да се изпозлва за извличането на потребителски запис от базата. Това е `грешният начин` да постигнете това:
 
 {% highlight php %}
 <?php
@@ -36,10 +34,9 @@ $pdo = new PDO('sqlite:users.db');
 $pdo->query("SELECT name FROM users WHERE id = " . $_GET['id']); // <-- NO!
 {% endhighlight %}
 
-This is terrible code. You are inserting a raw query parameter into a SQL query. This will get you hacked in a
-heartbeat. Just imagine if a hacker passes in an inventive `id` parameter by calling a URL like
-`http://domain.com/?id=1%3BDELETE+FROM+users`.  This will set the `$_GET['id']` variable to `id=1;DELETE FROM users`
-which will delete all of your users! Instead, you should sanitize the ID input using PDO bound parameters.
+Този код е ужасен. Така вие вкарвате суров параметър в заявката. По този начин ще бъдете хакнати за нула време. Просто си преставете как хакер предава `id` параметър като изпозлва URL подобен на
+`http://example.com/?id=1%3BDELETE+FROM+users`.  Това ще зададе `$_GET['id']` стойност `id=1;DELETE FROM users`
+което ще изтрие всички ваши потребители! Вместо това, вие трябва да филтрирате ID-то от входаизпозлваки PDO обвързани параметри (bound parameters).
 
 {% highlight php %}
 <?php
@@ -49,27 +46,27 @@ $stmt->bindParam(':id', $_GET['id'], PDO::PARAM_INT); //<-- Automatically saniti
 $stmt->execute();
 {% endhighlight %}
 
-This is correct code. It uses a bound parameter on a PDO statement. This escapes the foreign input ID before it is introduced to the
-database preventing potential SQL injection attacks.
+Това е правиният начин. Използва обвързан параметърк към PDO параметризирана заявка. Това екранира външния вход за ID преди да бъде предаден на базата данни и предотвратява SQL injection.
 
-* [Learn about PDO][1]
+* [Научи повече за PDO][1]
 
-You should also be aware that database connections use up resources and it was not unheard-of to have resources
-exhausted if connections were not implicitly closed, however this was more common in other languages. Using PDO you
-can implicitly close the connection by destroying the object by ensuring all remaining references to it are deleted,
-ie. set to NULL.  If you don't do this explicitly, PHP will automatically close the connection when your script ends
-unless of course you are using persistent connections.
+Трябва също да знаере че връзките към базата данни използват ресурски и е имало проблеми с липса на достатъчно ресурси,
+когато не се затрябват връзки към базата данни или заявки, то това е по-често за другите програмни езици. Изпозлването на
+PDO може неуказано да затвори възка, при унищожаването на обект за да осигури всички синоними (референции) на обекта да са изтрити,
+т.е. със стойност NULL.  Ако не направите това изрично, PHP автоматично ще затвори връзката когато скрипта приключи,
+освен ако не ползвате постоянни връзки (persistent connections).
 
-* [Learn about PDO connections][5]
+* [Научи повече за PDO връзките][5]
 
-## Abstraction Layers
+## Слоеве на абстракция
 
-Many frameworks provide their own abstraction layer which may or may not sit on top of PDO.  These will often emulate features for
-one database system that another is missing form another by wrapping your queries in PHP methods, giving you actual database abstraction.
-This will of course add a little overhead, but if you are building a portable application that needs to work with MySQL, PostgreSQL and
-SQLite then a little overhead will be worth it the sake of code cleanliness.
+Много рамки ползват обствен слой на абстракция, който може или не да бъде надграден върху PDO. Те обикновено емулират възможности на
+на други бази, които са достъпини за едни, но не и за други, като обвиват заявките в PHP методи, давайки реална абстракция на базата данни.
+Това естественои добавя малко режиен (overhead), но ако разработвате преносимо (съвместимо с множество платформи) приложение,
+което трябва да раобти с MySQL, PostgreSQL и SQLite, тогава малко (най-често незабележимо) забавяне ще си струва за сметка на
+подредения и чист код.
 
-Some abstraction layers have been built using the PSR-0 namespace standard so can be installed in any application you like:
+Някои слоеве на абстракция са направени в съответствие с PSR-0 конвенцията на пространства от имена и могат да бъдат инсталирани в приложението ви, примери:
 
 * [Doctrine2 DBAL][2]
 * [ZF2 Db][4]
