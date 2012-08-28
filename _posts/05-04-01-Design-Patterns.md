@@ -1,16 +1,17 @@
 ---
+title:   Шаблони за дизайн
 isChild: true
 ---
 
-## Design Patterns
+## Шаблони за дизайн
 
-When you are building your application it is helpful to use common patterns in your code and common patterns for the
-overall structure of your project. Using common patterns is helpful because it makes it much easier to manage your code
-and lets other developers quickly understand how everything fits together.
+Когато създавате приложение е полезно да ползвате, често срещани шаблони в кода и в общата структура на проекта.
+Изпозлването на шаблони е полезно защото прави кода много по лесен за управление и поддръжка и позволява на
+разработчиците лесно да разберат как всичко се връзва помежду си.
 
-If you use a framework then most of the higher level code and project structure will be based on that framework, so a
-lot of the pattern decisions are made for you. But it is still up to you to pick out the best patterns to follow in the
-code you build on top of the framework. If, on the other hand, you are not using a framework to build your application
-then you have to find the patterns that best suit the type and size of application that you're building.
+Ако ползвате рамка, тогава по-голяма част от кода от високо ниво и проектната структура ще са абзирани на рамката, така че
+голяма част от решенията за шаблони са взети вместо вас. Но въпреки това освата вие да изберете най-добрите за вас шаблони,
+когато стата дума за код. Ако от друга страна не ползвате рамка, то тогава трябва да подберете такива шаблони, които
+да пасват на типа и размера на приложението което изграждате.
 
-* Continue reading on [Design Patterns](/pages/Design-Patterns.html)
+* Продължи четенето на [шаблони за дизайн](/pages/Design-Patterns.html)

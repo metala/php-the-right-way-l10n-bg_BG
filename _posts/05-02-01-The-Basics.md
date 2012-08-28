@@ -1,12 +1,13 @@
 ---
+tilte:   Основите
 isChild: true
 ---
 
-## The Basics
+## Основите
 
-PHP is a vast language that allows coders of all levels the ability to produce code not only quickly, but efficiently. 
-However while advancing through the language, we often forget the basics that we first learnt (or overlooked) in favor 
-of short cuts and/or bad habits. To help combat this common issue, this section is aimed at reminding coders of the 
-basic coding practices within PHP.
+PHP е обширен език, кото позволява на програмистите от всяко ниво взможността да създават код, не само бързо но и ефективно.
+За съжаление, с напредването ни в езика, ние често забравяме за за основите, които първо сме научили (или пренебрегнати) за
+сметка на бързите решения и лошите навици. За да се борите с този въздесъщ проблем, тази секция е сложена за да припомня
+на програмистите за основите за писане на код в PHP.
 
-* Continue reading on [The Basics](/pages/The-Basics.html)
+* Продължи да четеш [основите](/pages/The-Basics.html)
