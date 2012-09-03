@@ -1,21 +1,22 @@
 ---
+title:   Разработване основано на поведение
 isChild: true
 ---
 
-## Behavior Driven Development
+## Разработване основано на поведение (Behavior Driven Development)
 
-There are two different types of Behavior-Driven Development (BDD): SpecBDD and StoryBDD. SpecBDD focuses on technical behavior or code, while StoryBDD focuses on business or feature behaviors or interactions. PHP has frameworks for both types of BDD.
+Има два типа разработване основано на поведение: SpecBDD и StoryBDD. SpecBDD се фокусира на техническото поведение или код, докато StoryBDD е насочено към бизнеса, чертите на поведение и взаимотношенията. PHP има рамки за двата типа РОП (BDD).
 
-With StoryBDD, you write human-readable stories that describe the behavior of your application. These stories 
-can then be run as actual tests against your application. The framework used in PHP applications for StoryBDD
-is Behat, which is inspired by Ruby's [Cucumber](http://cukes.info/) project and implements the Gherkin DSL
-for describing feature behavior.
+Със StoryBDD, вие пишете на човешки език истории които описват поведението на вашето приложение. Тези истории
+могат да пускат реални тестове на вашето приложение. Рамката използвана в PHP приложенията за StoryBDD
+е Behat, която е вдъхновена от [Cucumber](http://cukes.info/) за Руби (Ruby), преокт който реализира Gherkin DSL (Domain-specific Language)
+за описване на чертите на поведение.
 
-With SpecBDD, you write specifications that describe how your actual code should behave. Instead of testing
-a function or method, you are describing how that function or method should behave. PHP offers the PHPSpec framework for this purpose. This framework is inspired
-by the [RSpec project](http://rspec.info/) for Ruby.
+Със SpecBDD, вие пиешете спецификация как въщност вашият код трябав да се държи. Вмето да тествате функция или метод,
+вие описвате как трябва да се държи. За тази работа PHP предлага рамката PHPSpec. Тази рамка е вдъхновена
+от проекта [RSpec project](http://rspec.info/) за Руби.
 
-### BDD Links    
+### Инструменти за РОП (BDD)    
 
 * [Behat](http://behat.org/), the StoryBDD framework for PHP, inspired by Ruby's [Cucumber](http://cukes.info/) project;
 * [PHPSpec](http://www.phpspec.net/), the SpecBDD framework for PHP, inspired by Ruby's [RSpec](http://rspec.info/) project;

@@ -1,12 +1,13 @@
 ---
+title:   Интрументи допълващи тестването
 isChild: true
 ---
 
-## Complementary Testing Tools
+## Интрументи допълващи тестването
 
-Besides individual testing and behavior driven frameworks, there are also a number of generic frameworks and helper libraries useful for any preferred approach taken.
+Освен индивидуалните тестове и рамките за BDD тестване, има множество обикновени рамки и спомагателни библиотеки, които се ползват независимо от избрания подход за тестване.
 
-### Tool Links
+### Интрументи
 
-* [Selenium](http://seleniumhq.org/) is a browser automation tool which can be [integrated with PHPUnit](http://www.phpunit.de/manual/3.1/en/selenium.html)
-* [Mockery](https://github.com/padraic/mockery) is a Mock Object Framework which can be integrated with [PHPUnit](http://phpunit.de/) or [PHPSpec](http://www.phpspec.net/)
+* [Selenium](http://seleniumhq.org/) е автоматизиран интрумент за тестване чрез браузър, който може да бъде [интегриран с PHPUnit](http://www.phpunit.de/manual/3.1/en/selenium.html)
+* [Mockery](https://github.com/padraic/mockery) е рамка за "mock", който могат да се интегрират с [PHPUnit](http://phpunit.de/) или [PHPSpec](http://www.phpspec.net/)
