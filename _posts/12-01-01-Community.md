@@ -1,20 +1,24 @@
-# Community
+---
+title: Общност
+---
+
+# Общност
 
 The PHP community is as diverse as it is large, and it's members are ready and willing to support new PHP programmers. You should consider joining your local PHP user group (PUG) or attending larger PHP conferences to learn more about the best practices shown here. You can also hang out on IRC in the #phpc channel on irc.freenode.com and follow the [@phpc][phpc-twitter] twitter account. Get out there, meet new developers, learn new topics and, above all, make new friends.
 
-[Read the Official PHP Events Calendar][php-calendar]
+[Прочети календара с официални събития на PHP][php-calendar]
 
-## PHP User Groups
+## PHP групи от потребители
 
-If you live in a larger city, odds are there's a PHP user group nearby. Although there's not yet an official list of PUGs, you can easily find your local PUG by searching on [Google][google] or [Meetup.com][meetup]. If you live in a smaller town, there may not be a local PUG; if that's the case, start one!
+Ако живееш в голям град, много е вероятно да има PHP група наоколо. Въпреки че няма официален списък от PUGs (PHP User Groups), можете ленсо да намерите локална PUG като потърсите в [Google][google] или [Meetup.com][meetup]. Ако живеете в по-малък град, вероятно няма да има локална PUG; в такъв случай, направете една!
 
-[Read about User Groups on the PHP Wiki][php-wiki]
+[Прочети относно потребителските групи в PHP Wiki][php-wiki]
 
-## PHP Conferences
+## PHP конференции
 
-The PHP community also hosts larger regional and national conferences in many countries around the world. Well-known members of the PHP community usually speak at these larger events, so it's a great opportunity to learn directly from industry leaders.
+PHP общността е също домакин на големи регионални и национални конференции в много страни по света. Добре известни членове на PHP общността  обикновено говорят на тези събития, което е възможност да научиш нещо ново директно от големите в PHP.
 
-[Find a PHP Conference][php-conf]
+[Намери PHP конференция][php-conf]
 
 [php-calendar]: http://www.php.net/cal.php
 [google]: https://www.google.com/search?q=php+user+group+near+me
