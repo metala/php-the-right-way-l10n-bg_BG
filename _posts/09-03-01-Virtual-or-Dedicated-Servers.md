@@ -1,28 +1,29 @@
 ---
+title:   Виртуални или наети сървъри
 isChild: true
 ---
 
-## Virtual or Dedicated Servers
+## Виртуални или наети сървъри
 
-If you are comfortable with systems administration, or are interested in learning it, virtual or dedicated servers give you complete control of your application's production environment.
+Ако сте наясно със системното администриране или се интересувате от изучаавнето му, виртуалните и наети сървъри ще ви предоставят пълен контрол над реалната средата за вашето приложение.
 
-### nginx and PHP-FPM
+### nginx и PHP-FPM
 
-PHP, via PHP's built-in FastCGI Process Manager (FPM), pairs really nicely with [nginx](http://nginx.org), which is a lightweight, high-performance web server. It uses less memory than Apache and can better handle more concurrent requests. This is especially important on virtual servers that don't have much memory to spare.
+PHP се връзва много лесно и точно с [nginx](http://nginx.org), чрез вградения за PHP's FastCGI Process Manager (FPM), nginx е лек и бърз уеб сървър с висока производитленост. Той заема по-малко памет от Apache и обработва по-добре множество едновременни заявки. Това е много важно когато става дума за виртуални сървъри, които нямат много свободна памет (RAM).
 
-* [Read more on nginx](http://nginx.org)
-* [Read more on PHP-FPM](http://php.net/manual/en/install.fpm.php)
-* [Read more on setting up nginx and PHP-FPM securely](https://nealpoole.com/blog/2011/04/setting-up-php-fastcgi-and-nginx-dont-trust-the-tutorials-check-your-configuration/)
+* [Прочетете повече за nginx](http://nginx.org)
+* [Прочетете повече за PHP-FPM](http://php.net/manual/en/install.fpm.php)
+* [Прочетете повече за сигурната настройката на nginx и PHP-FPM](https://nealpoole.com/blog/2011/04/setting-up-php-fastcgi-and-nginx-dont-trust-the-tutorials-check-your-configuration/)
 
-### Apache and PHP
+### Apache и PHP
 
-PHP and Apache have a long history together. Apache is wildly configurable and has many available [modules](http://httpd.apache.org/docs/2.4/mod/) to extend functionality. It is a popular choice for shared servers and an easy setup for PHP frameworks and open source apps like WordPress. Unfortunately, Apache uses more resources than nginx by default and cannot handle as many visitors at the same time.
+PHP и Apache имат дълга история заедно. Apache има много настройки и имного налични [модули](http://httpd.apache.org/docs/2.4/mod/) които разширяват фунционалността. Това е най-популярният избор за споделени сървъри и е лесен за настройване за работа с PHP рамки и приложения с отворен код като WordPress. За жалост, Apache, в общият случай, използва много повече ресурси от колкото nginx и не може да се справи с много посетители едновременно.
 
-Apache has several possible configurations for running PHP. The most common and easiest to setup is the [prefork MPM](http://httpd.apache.org/docs/2.4/mod/prefork.html) with mod_php5. While it isn't the most memory efficient, it is the simplest to get working and to use. This is probably the best choice if you don't want to dig too deeply into the server administration aspects.  Note that if you use mod_php5 you MUST use the prefork MPM.
+Apache има няколко вързможни конфигурации за работа с PHP. Най-често ползваният подход е [prefork MPM](http://httpd.apache.org/docs/2.4/mod/prefork.html) с mod_php5. Въпреки, че това не е най-ефективният по отношение на памет метод, това е най-простият начин да накараш PHP да тръгне. Това е вероятно най-добрият избор, ако не желаеш да се ровиш дълбоко в системната администрация.  Забележка: Ако ползвате mod_php5 вие __ТРЯБВА__ да ползвате prefork MPM.
 
-Alternatively, if you want to squeeze more performance and stability out of Apache then you can take advantage of the same FPM system as nginx and run the [worker MPM](http://httpd.apache.org/docs/2.4/mod/worker.html) or [event MPM](http://httpd.apache.org/docs/2.4/mod/event.html) with mod_fastcgi or mod_fcgid. This configuration will be significantly more memory efficient and much faster but it is more work to set up.
+В другият случай, ако искате да изтискате повече производителност и стабилност от Apache можете да се възползвате от същата FPM система, както nginx и да пуснете [worker MPM](http://httpd.apache.org/docs/2.4/mod/worker.html) или [event MPM](http://httpd.apache.org/docs/2.4/mod/event.html) чрез mod_fastcgi или mod_fcgid. Тази конфигурация ще бъде значително по-екефтивна в работата си с памет и много по-бърза, но изисква време за настройката.
 
-* [Read more on Apache](http://httpd.apache.org/)
-* [Read more on Multi-Processing Modules](http://httpd.apache.org/docs/2.4/mod/mpm_common.html)
-* [Read more on mod_fastcgi](http://www.fastcgi.com/mod_fastcgi/docs/mod_fastcgi.html)
-* [Read more on mod_fcgid](http://httpd.apache.org/mod_fcgid/)
+* [Прочети повече за Apache](http://httpd.apache.org/)
+* [Прочети повече за Multi-Processing Modules](http://httpd.apache.org/docs/2.4/mod/mpm_common.html)
+* [Прочети повече за mod_fastcgi](http://www.fastcgi.com/mod_fastcgi/docs/mod_fastcgi.html)
+* [Прочети повече за mod_fcgid](http://httpd.apache.org/mod_fcgid/)

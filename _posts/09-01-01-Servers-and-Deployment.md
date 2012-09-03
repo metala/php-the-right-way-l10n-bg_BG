@@ -1,3 +1,6 @@
-# Servers and Deployment
+---
+title: Сървъри и внедряване
+---
+# Сървъри и внедряване
 
-PHP applications can be deployed and run on production web servers in a number of ways.
+PHP приложенията могат да бъдат внедрени и пуснати на реални уеб сървъри по много различни начини.

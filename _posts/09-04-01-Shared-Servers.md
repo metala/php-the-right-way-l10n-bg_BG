@@ -1,7 +1,8 @@
 ---
+title:   Споделени сървири
 isChild: true
 ---
 
-## Shared Servers
+## Споделени сървири
 
-PHP has shared servers to thank for its popularity. It is hard to find a host without PHP installed, but be sure it's the latest version. Shared servers allow you and other developers to deploy websites to a single machine. The upside to this is that it has become a cheap commodity. The downside is that you never know what kind of a ruckus your neighboring tenants are going to create; loading down the server or opening up security holes are the main concerns. If your project's budget can afford to avoid shared servers you should.
+PHP трява да благодари за своята популярност на споделените вървъри. Трудно е да намериш хостинг без PHP, но проверявайте дали има поддържа за последната версия на PHP. Споределните сървири позволяват на вас и на други разработчици да внедрят уеб сайтове/приложения на една машина. Положителната страна на това е, че е евтино. Отрицателната в това, че не знаете вашите "съседи" какво могат да направят; основните опасения са в предоварването на сървъра или отварянето на дупка в сигурността. Ако бюджета на проекта ви го позволява, ползвайте нещо различно от спореден хостинг.
