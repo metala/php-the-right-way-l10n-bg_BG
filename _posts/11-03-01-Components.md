@@ -1,25 +1,31 @@
 ---
+title:   Компоненти
 isChild: true
 ---
 
-## Components
+## Компоненти
 
-As mentioned above "Components" are another approach to the common goal of creating, distributing and implementing shared code. Various 
-component repositories exist, the main two of which are:
+Както споменахме преди, "компонентите" са друг подход към общата цел
+за съдаването, разпространението и разработката и преизползването на
+споделен код. Има много различни хранилища за компоненти. Две от
+основните са:
 
 * [Packagist](/#composer_and_packagist)
 * [PEAR](/#pear)
 
-Both of these repositories have command line tools associated with them to help the installation and upgrade processes, and have been 
-explained in more detail in the [Dependency Management][dm] section.
+И двете хранилища разполагат с инструменти за инсталиране, обновяване
+на компоненти. Това е обяснено по-добре и в детайли в секцията
+[Управление на зависимости][dm].
 
-There are also component-based frameworks, which allow you to use their components with minimal (or no) requirements. For example, you 
-can use the [FuelPHP Validation package][fuelval], without needing to use the FuelPHP framework itself. These projects are essentially 
-just another repository for reusable components:
+Има компонентни рамки, които ви позволяват да индивидуално техните
+компоненти с минимални или никакви допълнителни изисквания. Например,
+можете да ползвате пакета [FuelPHP Validation][fuelval], без да е необходимо
+да ползвате цялата рамка FuelPHP. Тези проекти същност да просто едино
+хранилище от компоненти за преизползване:
 
   [dm]: /#dependency_management
   [fuelval]: https://github.com/fuelphp/validation
 
 * [Aura](http://auraphp.github.com/)
-* [FuelPHP (2.0 only)](https://github.com/fuelphp)
+* [FuelPHP (само 2.0)](https://github.com/fuelphp)
 * [Symfony Components](http://symfony.com/doc/current/components/index.html)

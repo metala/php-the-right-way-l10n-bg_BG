@@ -1,11 +1,15 @@
-# Resources
+---
+title: Ресурси
+---
 
-## From the Source
+# Ресурси
+
+## От източника
 
 * [PHP Website](http://php.net/)
 * [PHP Documentation](http://php.net/docs.php)
 
-## People to Follow
+## Хора да "следваш" в Туитър
 
 * [Rasmus Lerdorf](http://twitter.com/rasmus)
 * [Fabien Potencier](http://twitter.com/fabpot)
@@ -15,11 +19,11 @@
 * [Matthew Weier O'Phinney](http://twitter.com/weierophinney)
 * [Nikita Popov](http://twitter.com/nikita_ppv)
 
-## Mentoring
+## Менторство
 
-* [phpmentoring.org](http://phpmentoring.org/) - Formal, peer to peer mentoring in the PHP community.
+* [phpmentoring.org](http://phpmentoring.org/) - Официално, съвместно менторство в PHP общността.
 
-## PHP PaaS Providers
+## PHP доставчици на PaaS услуги
 
 * [PagodaBox](https://pagodabox.com/)
 * [PHP Fog](https://phpfog.com/)
