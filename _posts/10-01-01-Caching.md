@@ -1,4 +1,4 @@
-# Caching
+# Кеширане (Caching)
 
-PHP is pretty quick by itself, but bottlenecks can arise when you make remote connections, load files, etc. 
-Thankfully, there are various tools available to speed up certain parts of your application, or reduce the number of times these various time consuming tasks need to run.
+PHP е достатъчно бърз сам по себе си, но се получават забавяния когато се правят отдалечени мрежови връзки, зареждане на файлове и др.
+За щястие, има техники и инструменти , които да забързат определени части от вашето приложение, или да намалят броят на извикванията на тежки процеси и задачи.
