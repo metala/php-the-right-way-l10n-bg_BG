@@ -1,21 +1,21 @@
 ---
 layout: page
-title: Design Patterns
+title: Шаблони за дизайн
 ---
 
-# Design Patterns
+# Образци за дизайн
 
-There are numerous ways to structure the code and project for you web application, and you can put as much or as little
-thought as you like into architecting. But it is usually a good idea to follow to common patterns because it will make
-your code easier to manage and easier for others to understand.
+Има множество начини да структурираш един код на проект за уеб приложение и можеш да вложиш колкото си искаш
+мисъл в архитектурата на приложението. Но обикновено е хубаво да следваш утвърдени образци, които ще ти направят
+кода по-удобен за управление и по-лесен за разбиране от другите.
 
-* [Architectural pattern on Wikipedia](https://en.wikipedia.org/wiki/Architectural_pattern)
-* [Software design pattern on Wikipedia](https://en.wikipedia.org/wiki/Software_design_pattern)
+* [Architectural pattern в Wikipedia (английски)](https://en.wikipedia.org/wiki/Architectural_pattern)
+* [Software design pattern в Wikipedia (английски)](https://en.wikipedia.org/wiki/Software_design_pattern)
 
-## Factory
+## Образец "Фабрика" (Factory)
 
-One of the most commonly used design patterns is the factory pattern. In this pattern, a class simply creates
-the object you want to use. Consider the following example of the factory pattern:
+Един от най-често срещаните шаблони е образецът "фабрика". В този шаблон, един клас създава
+обекта, който искате да ползвате. Следва пример за ползване на шаблона:
 
 {% highlight php %}
 <?php
@@ -44,45 +44,46 @@ class AutomobileFactory
     }
 }
 
-// have the factory create the Automobile object
+// Използваме фабриакта за да създадем обект Automobile
 $veyron = AutomobileFactory::create('Bugatti', 'Veyron');
 
-print_r($veyron->get_make_and_model()); // outputs "Bugatti Veyron"
+print_r($veyron->get_make_and_model()); // извежда "Bugatti Veyron"
 {% endhighlight %}
 
-This code uses a factory to create the Automobile object. There are two possible benefits to building your code this
-way, the first is that if you need to change, rename, or replace the Automobile class later on you can do so and you
-will only have to modify the code in the factory, instead of every place in your project that uses the Automobile
-class. The second possible benefit is that if creating the object is a complicated job you can do all of the work in
-the factory, instead of repeating it every time you want to create a new instance.
+Този код използва фабрика за да създаде обект от тип Automobile. Има поне две възможни ползи от изграждането на
+кода ви по този начин. Първата е, ако трябва да смените, преименвате или замените класа Automobile, единственото място
+където трябва промените е във фабриката, а не на всяко място в кода където се ползва класа Automobile. Втората възможна
+полза е в това че създаването на обект може да е сложна задача и може да се пренесе работата в фабриката, вместо да
+се повтаря кода за установяване при всяко създаване на обект.
 
-Using the factory pattern isn't always necessary (or wise). The example code used here is so simple that a factory
-would simply be adding unneeded complexity. However if you are making a fairly large or complex project you may save
-yourself a lot of trouble down the road by using factories.
+Използването на шаблона "Фабрика" не винаги е нужно или умно. Примерния код показан по-горе е твърде прост и
+фабриката в случая добавя ненужна сложност. Но когато правиш сравнително голям и сложен проект, може да си спрестиш
+доста мъки, ако ползваш фабрики. 
 
-* [Factory pattern on Wikipedia](https://en.wikipedia.org/wiki/Factory_pattern)
+* [Шаблон Фабрика в Wikipedia (английски)](https://en.wikipedia.org/wiki/Factory_pattern)
 
-## Front Controller
+## Преден контролер (Front Controller)
 
-The front controller pattern is where you have a single entrance point for you web application (e.g. index.php) that
-handles all of the requests. This code is responsible for loading all of the dependencies, processing the request and
-sending the response to the browser. The front controller pattern can be beneficial because it encourages modular code
-and gives you a central place to hook in code that should be run for every request (such as input sanitization).
+Предният контролер представлява единствена точка за достъп до вашето уеб приложение (пр. index.php), което обработва
+всички заявки. Този код е отговорен за зареждането на всички зависимости, обработката на заявката и изпращането на
+на отговора обратно до браузъра. Предният контролер може да е полезен, защото насърчава разделянето на кода на модули
+и предоставя централно място за закачане на код, който трябва да се изпълнява с всяка заявка (като например изчистване
+на входните данни) 
 
-* [Front Controller pattern on Wikipedia](https://en.wikipedia.org/wiki/Front_Controller_pattern)
+* [Front Controller pattern в Wikipedia (английски)](https://en.wikipedia.org/wiki/Front_Controller_pattern)
 
-## Model-View-Controller
+## Образец Модел-Изглед-Контролер (Model-View-Controller)
 
-The model-view-controller (MVC) pattern and its relatives HMVC and MVVM let you break up code into logical objects that
-serve very specific purposes. Models serve as a data access layer where data it fetched and returned in formats usable
-throughout your application. Controllers handle the request, process the data returned from models and load views to
-send in the response. And views are display templates (markup, xml, etc) that are sent in the response to the web
-browser.
+Шаблонът Модел-изглед-контролер (MVC) и неговите производни HMVC и MVVM, ти поззволяват да разбиеш кода на логически
+обекти, които вършат точно определена работа. Моделите служа, каот слой за достъп, извличане и форматиране на данни
+в цялото ви приложението. Контролерите обработват заявките, обработват данните получени от моделите и зареждат изгледите
+за изпращане като отговор. Изгледите форматират изгодните данни по подходящ начин за визуализация и обикновено
+биват форматирани като документни бланки (markup, xml и др. формати). 
+ 
+MVC е най-често срещаният архитектурен образец/шаблон използван в известните [PHP рамки](https://github.com/codeguy/php-the-right-way/wiki/Frameworks).
 
-MVC is the most common architectural pattern used in the popular [PHP frameworks](https://github.com/codeguy/php-the-right-way/wiki/Frameworks).
+Научете повече за MVC и неговите подобни:
 
-Learn more about MVC and its relatives:
-
-* [MVC](https://en.wikipedia.org/wiki/Model%E2%80%93View%E2%80%93Controller)
-* [HMVC](https://en.wikipedia.org/wiki/Hierarchical_model%E2%80%93view%E2%80%93controller)
-* [MVVM](https://en.wikipedia.org/wiki/Model_View_ViewModel)
+* [MVC (английски)](https://en.wikipedia.org/wiki/Model%E2%80%93View%E2%80%93Controller)
+* [HMVC (английски)](https://en.wikipedia.org/wiki/Hierarchical_model%E2%80%93view%E2%80%93controller)
+* [MVVM (английски)](https://en.wikipedia.org/wiki/Model_View_ViewModel)
