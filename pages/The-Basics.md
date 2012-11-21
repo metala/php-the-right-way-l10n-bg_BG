@@ -1,51 +1,62 @@
 ---
 layout: page
-title: The Basics
+title: Основите
 ---
 
-# The Basics
+# Основите
 
-## Comparison operators
+## Оператори за сравнение
 
-Comparison operators are an often overlooked aspect of PHP, which can lead to many unexpected outcomes. One such
-problem stems from strict comparisons (the comparison of booleans as integers).
+Операторите за сравнение са често непрочетени и пропускани, в следствие на което водят до неочаквани изходи. Един пример
+се крие в стриктните сравнения (сравняването на булева стойност с цяло число).
 
 {% highlight php %}
 <?php
-$a = 5;   // 5 as an integer
+$a = 5;   // 5 като цяло число
 
-var_dump($a == 5);       // compare value; return true
-var_dump($a == '5');     // compare value (ignore type); return true
-var_dump($a === 5);      // compare type/value (integer vs. integer); return true
-var_dump($a === '5');    // compare type/value (integer vs. string); return false
+var_dump($a == 5);       // сравнява по стойсност; върша истина (true)
+var_dump($a == '5');     // сравнява по стойност (пропуска типа); връща истина (true)
+var_dump($a === 5);      // compare type/value (integer vs. integer); връша истина (true)
+var_dump($a === '5');    // compare type/value (integer vs. string); връща лъжа (false)
 
 /**
- * Strict comparisons
+ * Стриктни сравнения
  */
-if (strpos('testing', 'test')) {    // 'test' is found at position 0, which is interpreted as the boolean 'false'
-    // code...
+if (strpos('testing', 'test')) {    // 'test' се намира на позиция 0, което се интерпретира като булева лъжа 'false'
+    // още код...
 }
 
-vs.
+// А не
 
-if (strpos('testing', 'test') !== false) {    // true, as strict comparison was made (0 !== false)
-    // code...
+if (strpos('testing', 'test') !== false) {    // истина (true), в следствие на стриктното сравнение (0 !== false)
+    // още код...
 }
 {% endhighlight %}
 
-* [Comparison operators](http://php.net/manual/en/language.operators.comparison.php)
-* [Comparison table](http://php.net/manual/en/types.comparisons.php)
+* [Оператори за сравнение](http://php.net/manual/bg/language.operators.comparison.php)
+* [Таблица за сравнения](http://php.net/manual/bg/types.comparisons.php)
 
-## Conditional arguments
+## Условни аргументи
 
-### If statements
+### Конструкцията if
 
-While using 'if/else' statements within a function or class, there is a common misconception that 'else' must be used
-in conjunction to declare potential outcomes. However if the outcome is to define the return value, 'else' is not
-necessary as 'return' will end the function, causing 'else' to become moot.
+Като се ползват конструкциите 'if и else' в фунцкия или клас, съществува забуда,
+че 'else' трябва да бъде ползван за да укаже потенциален изход. Но когато случаят е,
+че трябва да върне стойност, 'else' не е нужен, той като 'return' ще прекрати
+функцията и 'else' ще бъде пропуснат.
 
 {% highlight php %}
 <?php
+function test($a)
+{
+    if ($a) {
+        return true;
+    }
+    return false;    // else не е нужен
+}
+
+// А не
+
 function test($a)
 {
     if ($a) {
@@ -54,58 +65,49 @@ function test($a)
         return false;
     }
 }
-
-vs.
-
-function test($a)
-{
-    if ($a) {
-        return true;
-    }
-    return false;    // else is not necessary
-}
 {% endhighlight %}
 
-* [If statements](http://php.net/manual/en/control-structures.if.php)
+* [Конструкция If](http://php.net/manual/en/control-structures.if.php)
 
-### Switch statements
+### Конструкцията switch
 
-Switch statements are a great way to avoid typing endless if's and elseif's, but there are a few things to be aware of:
+Конструкцията switch е великолепен начин за избягване на писане на безкрайни if/elseif/else, но трябва да се запознаете
+с някои неща относно конструкцията switch:
 
-- Switch statements only compare values, and not the type (equivalent to '==')
-- They Iterate case by case until a match is found. If no match is found, then the default is used (if defined)
-- Without a 'break', they will continue to implement each case until reaching a break/return
-- Within a function, using 'return' alleviates the need for 'break' as it ends the function
+- Конструкциата switch сравнява единствено по стойност, а не по тип (еквивалентно '==')
+- Те обхождат всеки един case последователно докато не достигне съвпадение. Ако не намери съвпадение, тогава отива на default (ако е описан)
+- Без 'break', ще продължат изпълнението надолу по кода докато не достигнат break/return или край на switch.
+- Когато се намира в функция 'return' преждевременно прекратява switch-а и връша стойността от функцията, което премахва нуждата от последвал break
 
 {% highlight php %}
 <?php
-$answer = test(2);    // the code from both 'case 2' and 'case 3' will be implemented
+$answer = test(2);    // кодът от от 'case 2' и 'case 3' ще бде изпълнен
 
 function test($a)
 {
     switch ($a) {
         case 1:
-            // code...
-            break;             // break is used to end the switch statement
+            // код...
+            break;             // използва се за break за прекратяване на конструкцията switch
         case 2:
-            // code...         // with no break, comparison will continue to 'case 3'
+            // код...          // без break, изпълнението ще продължи изпълнението до break или return, т.е. 'case 3'
         case 3:
-            // code...
-            return $result;    // within a function, 'return' will end the function
+            // код...
+            return $result;    // в фунцкия, 'return' ще прекрати функцията
         default:
-            // code...
+            // код...
             return $error;
     }
 }
 {% endhighlight %}
 
-* [Switch statements](http://php.net/manual/en/control-structures.switch.php)
+* [Конструкция switch](http://php.net/manual/bg/control-structures.switch.php)
 * [PHP switch](http://phpswitch.com/)
 
-## Global namespace
+## Голбално пространство от имена
 
-While using namespaces, you may find your code being executed in the wrong scope for internal methods. To fix this,
-define the method globally by using a backslash before the method.
+Когато се ползват постранства от имена, може да намерите вашият код да се изпълнява в грешен обхват (scope) за вътрешни
+методи. За да оправите това дефинирайте метода глобално, като добавите обратна наклонена черта пред името на метода.
 
 {% highlight php %}
 <?php
@@ -113,131 +115,131 @@ namespace phptherightway;
 
 function fopen()
 {
-    $file = \fopen();    // our function name is the same as an internal function
-                         // execute globally by adding '\'.
+    $file = \fopen();    // нашата функция е със същото име като вътрешна функция
+                         // изпълняваме глобалната като добавим '\' пред името.
 }
 
 function array()
 {
-    $iterator = new \ArrayIterator();    // ArrayIterator is an internal class. Using it without a backslash
-                                         // will execute it within the namespace scope
+    $iterator = new \ArrayIterator();    // ArrayIterator е вътрешен клас. Използвайки го без '\'
+                                         // ще се изпълни в локалното пространство от имена
 }
 {% endhighlight %}
 
-* [Global space](http://php.net/manual/en/language.namespaces.global.php)
-* [Global rules](http://php.net/manual/en/userlandnaming.rules.php)
+* [Global space (английски)](http://php.net/manual/en/language.namespaces.global.php)
+* [Global rules (английски)](http://php.net/manual/en/userlandnaming.rules.php)
 
-## Strings
+## Низове
 
-### Concatenation
+### Конкатенация
 
-- If your line extends beyond the recommended line length (120 characters), consider concatenating your line
-- For readability it's best to use concatenation operators over concatenating assignment operators
-- While within the original scope of the variable, indent when concatenation uses a new line
+- Ако линията надминава препоръчителната дължина (120 символа), опитайте се да го разделите на части и да ги конкатенирате
+- За четимост е най-добре да ползвате оператора за конкатенация '.', а не този за конкатенация и присвояване '.='
+- Когато сте в обхвата, където е декларирана променливата, отместете когато конкатенацията съдържа "нов ред"
 
 
 {% highlight php %}
 <?php
-$a  = 'Multi-line example';    // concatenating assignment operator (.=)
+$a = 'Пример на няколко реда,'      // оператор за конкатенация (.)
+    . "\n"                          // отместване при "нов ред"
+    . 'за това какво трябва да правим';
+
+// А не
+
+$a  = 'Същият пример на няколко реда,';    // оператор за конкатенация и присвояване (.=)
 $a .= "\n";
-$a .= 'of what not to do';
-
-vs.
-
-$a = 'Multi-line example'      // concatenation operator (.)
-    . "\n"                     // indenting new lines
-    . 'of what to do';
+$a .= 'но за това какво да НЕ правим';
 {% endhighlight %}
 
-* [String Operators](http://php.net/manual/en/language.operators.string.php)
+* [Оператори за работа с низове](http://php.net/manual/bg/language.operators.string.php)
 
-### String types
+### Низови типове
 
 String types are a constant feature within the PHP community, but hopefully this section will explain the
 differences between the string types and their benefits/uses.
 
-#### Single quotes
+#### Единични кавички
 
-Single quotes are the simplest way to define a string and are often the quickest. Their speed stems from PHP not
-parsing the string (doesn't parse for variables). They're best suited for:
+Единичните кавички е най-простият начин за дефиниране на низ и често най-бързият. Скоростта се крие в това,
+че PHP интерпретатора не прави разбор на низа (за променливи). Този тип е най-добър за:
 
-- Strings that do not need to be parsed
-- Writing of a variable into plain text
+- Низове, който не трябва да им се прави разбор
+- Изпизването на променлива в чист текст
 
 {% highlight php %}
 <?php
-echo 'This is my string, look at how pretty it is.';    // no need to parse a simple string
+echo 'This is my string, look at how pretty it is.';    // няма нужда от разбор на прост низ
 
 /**
- * Output:
+ * Изход:
  *
  * This is my string, look at how pretty it is.
  */
 {% endhighlight %}
 
-* [Single quote](http://www.php.net/manual/en/language.types.string.php#language.types.string.syntax.single)
+* [Single quote (английски)](http://www.php.net/manual/en/language.types.string.php#language.types.string.syntax.single)
 
-#### Double quotes
+#### Двойни кавички
 
-Double quotes are the Swiss army knife of strings, but are slower due to the string being parsed. They're best
-suited for:
+Двойните кавички представляват швецарско ножче за работа с низове, но са по-бавни зашото трябва да им се прави разпознаване.
+Най-добре служат за:
 
-- Escaped strings
-- Strings with multiple variables and plain text
-- Condensing multi-line concatenation, and improving readability
+- Екранирани низове
+- Низове с множество променливи и чист текст
+- Сбиване на многоредова конкатенация и подобравяне на четимостта
 
 {% highlight php %}
 <?php
-echo 'phptherightway is ' . $adjective . '.'     // a single quotes example that uses multiple concatenating for
-    . "\n"                                       // variables and escaped string
+echo 'phptherightway is ' . $adjective . '.'     // пример с единични кавички би използвал множество конкатенации
+    . "\n"                                       // за променливите и екранирания низ
     . 'I love learning' . $code . '!';
 
-vs.
+// А не
 
-echo "phptherightway is $adjective.\n I love learning $code!"  // Instead of multiple concatenating, double quotes
-                                                               // enables us to use a parsable string
+echo "phptherightway is $adjective.\n I love learning $code!"  // Вместо конкатенираме, двойните кавички
+                                                               // ни позволяват да ползваме низ за разпознаване
 {% endhighlight %}
 
-While using double quotes that contain variables, it's often the case that the variable will be touching another
-character. This will result in PHP not parsing the variable due to the variable being camouflaged. To fix this problem,
-wrap the variable within a pair of curly brackets.
+Когато се ползват двойни кавички, които съдържат променливи, често се случва променливата да се допира до
+друг символ. Тогава PHP няма да разпознае променливата, защото е скрита. За да оправим този проблем,
+Ограждаме променливаа в къдрави скоби.
 
 {% highlight php %}
 <?php
 $juice = 'plum';
-echo "I drank some juice made of $juices";    // $juice cannot be parsed
+echo "I drank some juice made of $juices";    // променливата $juice няма да бъде разпозната
 
 vs.
 
 $juice = 'plum';
-echo "I drank some juice made of {$juice}s";    // $juice will be parsed
+echo "I drank some juice made of {$juice}s";    // променливата $juice ще бъде разпозната
 
 /**
- * Complex variables will also be parsed within curly brackets
+ * Сложни променливи също ще бъдат разпознати, коато са в къдрави скоби
  */
 
 $juice = array('apple', 'orange', 'plum');
-echo "I drank some juice made of {$juice[1]}s";   // $juice[1] will be parsed
+echo "I drank some juice made of {$juice[1]}s";   // $juice[1] ще бъде разпозната
 {% endhighlight %}
 
-* [Double quotes](http://www.php.net/manual/en/language.types.string.php#language.types.string.syntax.double)
+* [Двойни кавички](http://www.php.net/manual/bg/language.types.string.php#language.types.string.syntax.double)
 
-#### Nowdoc syntax
+#### Nowdoc синтаксис
 
-Nowdoc syntax was introduced in 5.3 and internally behaves the same way as single quotes except it's suited toward the
-use of multi-line strings without the need for concatenating.
+Синтаксисът Nowdoc се появява за първи път в 5.3 и вътрешно действа като единични кавички, за разлика от това че е пригоден
+за ползване при многоредови низове без нуждата от конкатенация.
 
 {% highlight php %}
 <?php
-$str = <<<'EOD'             // initialized by <<<
+$str = <<<'EOD'             // установява се с <<<
 Example of string
 spanning multiple lines
 using nowdoc syntax.
 $a does not parse.
-EOD;                        // closing 'EOD' must be on it's own line, and to the left most point
+EOD;                        // затварящият 'EOD' трябва да е в началото на нов ред
 
 /**
- * Output:
+ * Изход:
  *
  * Example of string
  * spanning multiple lines
@@ -246,26 +248,26 @@ EOD;                        // closing 'EOD' must be on it's own line, and to th
  */
 {% endhighlight %}
 
-* [Nowdoc syntax](http://www.php.net/manual/en/language.types.string.php#language.types.string.syntax.nowdoc)
+* [Синтаксис Nowdoc](http://www.php.net/manual/bg/language.types.string.php#language.types.string.syntax.nowdoc)
 
-#### Heredoc syntax
+#### Heredoc синтаксис
 
-Heredoc syntax internally behaves the same way as double quotes except it's suited toward the use of multi-line
-strings without the need for concatenating.
+Синтаксисът Heredoc вътрешно работи като двойни кавички и е пригоден за работа с многоредови
+низове, без нужда от конкатенация.
 
 {% highlight php %}
 <?php
 $a = 'Variables';
 
-$str = <<<EOD               // initialized by <<<
+$str = <<<EOD               // Установява се чрез <<<
 Example of string
 spanning multiple lines
 using heredoc syntax.
 $a are parsed.
-EOD;                        // closing 'EOD' must be on it's own line, and to the left most point
+EOD;                        // затварящият 'EOD' трябва да е в началото на нов ред
 
 /**
- * Output:
+ * Изход:
  *
  * Example of string
  * spanning multiple lines
@@ -276,48 +278,48 @@ EOD;                        // closing 'EOD' must be on it's own line, and to th
 
 * [Heredoc syntax](http://www.php.net/manual/en/language.types.string.php#language.types.string.syntax.heredoc)
 
-## Ternary operators
+## Тройни оператори
 
-Ternary operators are a great way to condense code, but are often used in excess. While ternary operators can be
-stacked/nested, it is advised to use one per line for readability.
+Тройните оператори са страхотен начин за сбиване на код, но често се прекалява с използването им.
+Вътреки, че тройните оператори могат да се вместят един в друг, препоръчва се да се използва по една
+по един на линия с цел четимост.
 
 {% highlight php %}
 <?php
 $a = 5;
-echo ($a == 5) ? 'yay' : 'nay';
+echo ($a == 5) ? 'yay' : 'nay'; // Един на линия
 
-vs.
+А не:
 
-// nested ternary
+// вложени тройни оператори
 $b = 10;
-echo ($a) ? ($a == 5) ? 'yay' : 'nay' : ($b == 10) ? 'excessive' : ':(';    // excess nesting, sacrificing readability
+echo ($a) ? ($a == 5) ? 'yay' : 'nay' : ($b == 10) ? 'excessive' : ':(';    // търде много влагане, жертва се четимостта
 {% endhighlight %}
 
-Ternary operators also have their limitations and cannot be used to 'return' a value.
+Тройните оператори, също имат ограниения и не могат да бъдат ползвани за връшане ('return') на стойност.
 
 {% highlight php %}
 <?php
 $a = 5;
-echo ($a == 5) ? return true : return false;    // this example will output an error
+echo ($a == 5) ? return true : return false;    // този пример ще хвърли грешка,
 {% endhighlight %}
 
-* [Ternary operators](http://php.net/manual/en/language.operators.comparison.php)
+* [Троен оператор](http://php.net/manual/bg/language.operators.comparison.php)
 
-## Variable declarations
+## Деклариране на променливи
 
-At times, coders attempt to make their code "cleaner" by declaring predefined variables with a different name. What
-this does in reality is to double the memory consumption of said script. For the example below, let's say
-an example string of text contains 1MB worth of data, by copying the variable you've increased the scripts execution to
-2MB.
+Понякога, програмистите опитват да пишат "по-чист" код, като предефинират променливи с друго име. Реално това
+удвоява заетата памет от конкретния скрипт. За примера по-долу, нека кажем че примерният низ съдържа данни
+заемащи 1МБ памет. При копирането им в променлива, се увеличава използваната памет до 2МБ.
 
 {% highlight php %}
 <?php
-$about = 'A very long string of text';    // uses 2MB memory
+$about = 'A very long string of text';    // използва 2MB памет
 echo $about;
 
 vs.
 
-echo 'A very long string of text';        // uses 1MB memory
+echo 'A very long string of text';        // Използва 1MB памет
 {% endhighlight %}
 
-* [Performace tips](https://developers.google.com/speed/articles/optimizing-php)
+* [Съвети за подобрение на производителнсотта (английски)](https://developers.google.com/speed/articles/optimizing-php)
