@@ -34,7 +34,7 @@ if (strpos('testing', 'test') !== false) {    // истина (true), в сле�
 {% endhighlight %}
 
 * [Оператори за сравнение](http://php.net/manual/bg/language.operators.comparison.php)
-* [Таблица за сравнения](http://php.net/manual/bg/types.comparisons.php)
+* [Таблици за сравнение на типове в PHP](http://php.net/manual/bg/types.comparisons.php)
 
 ## Условни аргументи
 
@@ -67,7 +67,7 @@ function test($a)
 }
 {% endhighlight %}
 
-* [Конструкция If](http://php.net/manual/en/control-structures.if.php)
+* [Конструкцията If](http://php.net/manual/bg/control-structures.if.php)
 
 ### Конструкцията switch
 
@@ -101,8 +101,8 @@ function test($a)
 }
 {% endhighlight %}
 
-* [Конструкция switch](http://php.net/manual/bg/control-structures.switch.php)
-* [PHP switch](http://phpswitch.com/)
+* [Конструкцията switch](http://php.net/manual/bg/control-structures.switch.php)
+* [PHP switch (английски)](http://phpswitch.com/)
 
 ## Голбално пространство от имена
 
@@ -126,7 +126,7 @@ function array()
 }
 {% endhighlight %}
 
-* [Global space (английски)](http://php.net/manual/en/language.namespaces.global.php)
+* [Глобално пространство](http://php.net/manual/bg/language.namespaces.global.php)
 * [Global rules (английски)](http://php.net/manual/en/userlandnaming.rules.php)
 
 ## Низове
@@ -151,16 +151,16 @@ $a .= "\n";
 $a .= 'но за това какво да НЕ правим';
 {% endhighlight %}
 
-* [Оператори за работа с низове](http://php.net/manual/bg/language.operators.string.php)
+* [Оператори за низове](http://php.net/manual/bg/language.operators.string.php)
 
 ### Низови типове
 
-String types are a constant feature within the PHP community, but hopefully this section will explain the
-differences between the string types and their benefits/uses.
+Надяваме се с тази секция да обясним разликите между типовете 
+низове и техните предимства и начини за ползване.
 
-#### Единични кавички
+#### Апострофи
 
-Единичните кавички е най-простият начин за дефиниране на низ и често най-бързият. Скоростта се крие в това,
+Поставяне в апострофи е най-простият начин за дефиниране на низ и често най-бързият. Скоростта се крие в това,
 че PHP интерпретатора не прави разбор на низа (за променливи). Този тип е най-добър за:
 
 - Низове, който не трябва да им се прави разбор
@@ -177,11 +177,11 @@ echo 'This is my string, look at how pretty it is.';    // няма нужда �
  */
 {% endhighlight %}
 
-* [Single quote (английски)](http://www.php.net/manual/en/language.types.string.php#language.types.string.syntax.single)
+* [Поставяне в апострофи](http://www.php.net/manual/bg/language.types.string.php#language.types.string.syntax.single)
 
-#### Двойни кавички
+#### Кавички
 
-Двойните кавички представляват швецарско ножче за работа с низове, но са по-бавни зашото трябва да им се прави разпознаване.
+Поставянето в кавички представлява швецарско ножче за работа с низове, но е по-бавни защото трябва да им се прави разпознаване.
 Най-добре служат за:
 
 - Екранирани низове
@@ -222,7 +222,7 @@ $juice = array('apple', 'orange', 'plum');
 echo "I drank some juice made of {$juice[1]}s";   // $juice[1] ще бъде разпозната
 {% endhighlight %}
 
-* [Двойни кавички](http://www.php.net/manual/bg/language.types.string.php#language.types.string.syntax.double)
+* [Кавички](http://www.php.net/manual/bg/language.types.string.php#language.types.string.syntax.double)
 
 #### Nowdoc синтаксис
 
@@ -248,7 +248,7 @@ EOD;                        // затварящият 'EOD' трябва да е
  */
 {% endhighlight %}
 
-* [Синтаксис Nowdoc](http://www.php.net/manual/bg/language.types.string.php#language.types.string.syntax.nowdoc)
+* [Синтаксис тип Nowdoc](http://www.php.net/manual/bg/language.types.string.php#language.types.string.syntax.nowdoc)
 
 #### Heredoc синтаксис
 
@@ -276,13 +276,13 @@ EOD;                        // затварящият 'EOD' трябва да е
  */
 {% endhighlight %}
 
-* [Heredoc syntax](http://www.php.net/manual/en/language.types.string.php#language.types.string.syntax.heredoc)
+* [Синтаксис тип Heredoc](http://www.php.net/manual/bg/language.types.string.php#language.types.string.syntax.heredoc)
 
-## Тройни оператори
+## Условен оператор
 
-Тройните оператори са страхотен начин за сбиване на код, но често се прекалява с използването им.
-Вътреки, че тройните оператори могат да се вместят един в друг, препоръчва се да се използва по една
-по един на линия с цел четимост.
+Условените оператори са страхотен начин за сбиване на код, но често се прекалява с използването им.
+Вътреки, че те могат да се вместят един в друг, препоръчва се да се използва само по един на линия
+с цел четимост.
 
 {% highlight php %}
 <?php
@@ -291,7 +291,7 @@ echo ($a == 5) ? 'yay' : 'nay'; // Един на линия
 
 А не:
 
-// вложени тройни оператори
+// вложени условни оператори
 $b = 10;
 echo ($a) ? ($a == 5) ? 'yay' : 'nay' : ($b == 10) ? 'excessive' : ':(';    // търде много влагане, жертва се четимостта
 {% endhighlight %}
@@ -304,7 +304,7 @@ $a = 5;
 echo ($a == 5) ? return true : return false;    // този пример ще хвърли грешка,
 {% endhighlight %}
 
-* [Троен оператор](http://php.net/manual/bg/language.operators.comparison.php)
+* [Условен/троен оператор](http://php.net/manual/bg/language.operators.comparison.php)
 
 ## Деклариране на променливи
 
