@@ -18,12 +18,6 @@ isChild: true
 Можете да ползвате [phpmanager][phpmanager] (графичнa приставка IIS7) за проста настройка и управление на PHP simple. IIS7 идва с вграден и готов за ползване FastCGI, 
 само трябва да се настрои PHP като манипулатор (handler). Поддръжка и допълнтелни ресури можете да намерите на [iis.net][php-iis].
 
-Обикновено когато пускате приложенията си на различни среди при разработа и на реалните сървъри може да доведе до странни, проблеми (бъгове)
-които се повявяват след като се внедри приложението. Ако разработвате на Windows и внедрявате на Linux (или нещо, което не е Windows), тогава
-трябва да обмислите ползването на виртуална машина. Това звучи сложно, но ако използвате [Vagrant][vagrant] можете да настроите просто обвивки (wrappers),
-тогава изолзвайки [Puppet][puppet] или [Chef][chef] можете да подсигурите тези машини и да ги споделите с колегите за да сте сигурни,
-че работите всички в една и съща среда. Повече по въпроса ще има скоро.
-
 [php-downloads]: http://windows.php.net
 [phpmanager]: http://phpmanager.codeplex.com/
 [wpi]: http://www.microsoft.com/web/downloads/platform.aspx
@@ -31,6 +25,3 @@ isChild: true
 [xampp]: http://www.apachefriends.org/en/xampp.html
 [wamp]: http://www.wampserver.com/
 [php-iis]: http://php.iis.net/
-[vagrant]: http://vagrantup.com/
-[puppet]: http://www.puppetlabs.com/
-[chef]: http://www.opscode.com/
