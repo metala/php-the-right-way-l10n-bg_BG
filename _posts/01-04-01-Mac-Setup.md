@@ -12,9 +12,9 @@ Mountain Lion е с 5.3.10.
 [php-osx от Liip][php-osx-downloads] е препоръчителен.
 
 Друга възможност е [да си го компилирате сами][mac-compile], в този случай трябва да сте инсталирали предварително или Xcode или
-заместращите го ["Command Line Tools for Xcode"][apple-developer] от Mac Developer Center на Apple.
+заместващите го ["Command Line Tools for Xcode"][apple-developer] от Mac Developer Center на Apple.
 
-За пълен "всичко в едно" пакет включващ PHP, Apache уеб сървър и MySQL базаданни, всичко това с приятено графично приложение за управление,
+За пълен "всичко в едно" пакет, включващ PHP, Apache уеб сървър и MySQL базаданни, всичко това с приятено графично приложение за управление,
 пробвайте [MAMP][mamp-downloads].
 
 [mac-package-managers]: http://www.php.net/manual/en/install.macosx.packages.php
