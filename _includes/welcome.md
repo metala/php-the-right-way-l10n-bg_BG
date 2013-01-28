@@ -9,14 +9,16 @@
 
 _PHP: The Right Way_ е (или скоро ще бъде) преведено на много различни езици: 
 
+
 * [English](http://www.phptherightway.com)
 * [Chinese](http://wulijun.github.com/php-the-right-way)
 * [Japanese](http://ja.phptherightway.com)
-* Polish (скоро)
-* Portuguese (скоро)
+* [Polish](http://pl.phptherightway.com/)
+* [Portuguese](http://br.phptherightway.com/)
 * Russian (скоро)
 * [Spanish](http://es.phptherightway.com)
-* Ukrainian (скоро)
+* [Ukrainian](http://iflista.github.com/php-the-right-way/)
+* [Bulgarian](http://bg.phptherightway.com/)
 
 ## Опровержение
 
