@@ -46,7 +46,7 @@ Hello, world
 
 
  * [Научи отностно пускането на PHP от команден ред][php-cli]
- * [Научи относно пускането от команден ред на PHP под Windows][php-cli-windows]
+ * [Научи отностно пускането от команден ред на PHP под Windows][php-cli-windows]
 
 [phpinfo]: http://php.net/manual/en/function.phpinfo.php
 [cli-options]: http://www.php.net/manual/en/features.commandline.options.php
