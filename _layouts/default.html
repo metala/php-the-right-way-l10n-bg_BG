@@ -1,84 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bg">
     <head>
         <meta charset="utf-8"/>
         <title>{% if page.title %}{{ page.title }} - {% endif %}PHP: The Right Way</title>
         <meta name="description" content="{{ page.description }}"/>
         <meta name="robots" content="index,follow,archive"/>
-        <meta property="og:image" content="http://www.phptherightway.com/images/og-logo.png"/>
+        <meta property="og:image:url" content="http://bg.phptherightway.com/images/og-image.png"/>
+        <meta property="og:image:width" content="1024"/>
+        <meta property="og:image:height" content="640"/>
         <meta property="og:title" content="PHP: The Right Way"/>
-	<meta property="og:description" content="{{ page.description }}"/>
-        <meta property="og:url" content="http://www.phptherightway.com"/>
+        <meta property="og:description" content="Кратък наръчник за най-добрите актуални практики в PHP, приети стандарти за писане на код и връзки към качествени PHP ръководства в Интернет"/>
+        <meta property="og:url" content="http://bg.phptherightway.com"/>
         <meta property="og:site_name" content="PHP: The Right Way"/>
         <meta property="og:type" content="website"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-        <link href='http://fonts.googleapis.com/css?family=Alfa+Slab+One|Droid+Serif:400,700' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="/styles/all.css"/>
-        <link rel="stylesheet" href="/styles/syntax.css"/>
-        <link rel="icon" href="/images/favicon.png" type="image/png"/>
+        <link rel="icon" href="{{ site.baseurl }}images/favicon.png" type="image/png"/>
+        <link rel="stylesheet" href="{{ site.baseurl }}styles/syntax.css">
+        <link rel="stylesheet" href="{{ site.baseurl }}css/all.css">
     </head>
     <body>
+        <header class="site-header">
+            <h1><a href="/">PHP <em>The Right Way</em></a></h1>
+            <div class="build-date">Последно обновен на: {{ site.time }}</div>
+            <div class="share">
+                <a class="btn-share" href="https://twitter.com/intent/tweet?text=PHP+The+Right+Way+на+български&amp;url=http%3A%2F%2Fbg.phptherightway.com&amp;hashtags=PHP" target="_blank">Сподели в Twitter</a>
+            </div>
+            <a class="fork-me" href="https://github.com/metala/php-the-right-way-l10n-bg_BG" target="_blank"></a>
+        </header>
+
         <nav class="site-navigation">
-            <div class="build-date">Последно обновен: {{ site.time }}</div>
+            <input type="checkbox" id="toggle"/>
+            <label for="toggle">Съдържание</label>
             <ul>
-                <li><a href="/#site-header">Начало</a></li>
+                <li><a href="/#welcome">Начало</a>
+                    <ul>
+                        <li><a href="/#translations">Преводи</a></li>
+                        <li><a href="/#how-to-contribute">Как да допринесеш</a></li>
+                        <li><a href="/#spread-the-word">Разпространи идеята!</a></li>
+                    </ul>
+                </li>
                 {% assign lastIsChild = false %}
                 {% for post in site.posts reversed %}
-                    {% if post.isChild and lastIsChild != true %}<ul>{% endif %}
-                    {% if lastIsChild and post.isChild != true %}</ul>{% endif %}
-                    <li><a href="/#{{ post.title | downcase | replace:' ','_' | replace:'(','' | replace:')','' | replace:'.','' | replace:'-','' }}">{{ post.title }}</a>
+                    {% if post.isChild != true %}
+                        {% if insideSection %}
+                            </ul>
+                            </li>
+                            {% assign insideSection = false %}
+                        {% endif %}
+                    {% endif %}
+                    <li><a href="/#{% if post.anchor %}{{ post.anchor }}{% else %}{{ post.title | downcase | replace:' ','_' | replace:'(','' | replace:')','' | replace:'.','' | replace:'-','' }}{% endif %}">{{ post.title }}</a>
+                    {% if post.isChild %}
+                        </li>
+                    {% else %}
+                        <ul>
+                        {% assign insideSection = true %}
+                    {% endif %}
                     {% assign lastIsChild = post.isChild %}
                 {% endfor %}
-                <li><a href="/#site-footer">Проекта е направен благодарение на</a></li>
+                    </ul>
+                </li>
+                <li><a href="/#credits">Направено благодарение на</a></li>
             </ul>
         </nav>
-        <div class="site-content">
 
-            <a class="fork-me" href="https://github.com/metala/php-the-right-way-l10n-bg_BG">
-                <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub">
-            </a>
-
-            <header class="site-header" id="site-header">
-                <hgroup>
-                    <h1 class="site-title"><a href="/">PHP</a></h1>
-                    <h2 class="site-slogan">The Right Way.</h2>
-                </hgroup>
-                <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.phptherightway.com/" data-size="large" data-hashtags="php">Tweet</a>
-            </header>
+        <div class="site-content chapters">
             {{ content }}
-            <footer class="site-footer" id="site-footer">
-                <h2 class="epsilon">Създадено и поддържано от</h2>
-                <ul>
-                    <li><a href="http://twitter.com/codeguy">Josh Lockhart</a></li>
-                </ul>
-
-                <h2 class="epsilon">Съдтрудници по проекта</h2>
-                <ul>
-                    <li><a href="http://krisjordan.com/">Kris Jordan</a></li>
-                    <li><a href="http://philsturgeon.co.uk/">Phil Sturgeon</a></li>
-                </ul>
-
-                <h2 class="epsilon">Превод на български</h2>
-                <ul>
-                    <li><a href="https://github.com/metala">Марин Иванов</a></li>
-                </ul>
-
-                <h2 class="epsilon">Допринесли за проекта</h2>
-                <div id="contributors">Loading&hellip;</div>
-
-                <h2 class="epsilon">Спонсори</h2>
-                <ul class="mbd">
-                    <li><a href="http://www.newmediacampaigns.com">New Media Campaigns</a></li>
-                </ul>
-
-                <p>
-                    <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">PHP: The Right Way</span> от <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.twitter.com/codeguy" property="cc:attributionName" rel="cc:attributionURL">Josh Lockhart</a> е лицензиран с <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.<br />Съдържанието е базирано на <a xmlns:dct="http://purl.org/dc/terms/" href="http://www.phptherightway.com" rel="dct:source">www.phptherightway.com</a>.
-                </p>
-            </footer>
         </div>
 
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
-        <script src="/scripts/setup.js"></script>
+        <footer class="site-footer" id="credits">
+            <h2>Създадено и поддържано от</h2>
+            <ul>
+                <li><a href="http://joshlockhart.com" target="_blank">Josh Lockhart</a></li>
+                <li><a href="http://philsturgeon.co.uk/" target="_blank">Phil Sturgeon</a></li>
+                <li><a href="https://github.com/metala/php-the-right-way-l10n-bg_BG/graphs/contributors" target="_blank">И други допринесли за проекта</a></li>
+            </ul>
+            <div class="license">
+                <a class="cc-badge" rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"></a>
+                <br />
+                <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">PHP: The Right Way</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://joshlockhart.com" property="cc:attributionName" rel="cc:attributionURL">Josh Lockhart</a>
+                <br/>
+                is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.<br />Съдържанието е базирано на <a xmlns:dct="http://purl.org/dc/terms/" href="http://www.phptherightway.com" rel="dct:source">www.phptherightway.com</a>.
+            </div>
+        </footer>
+        <script>
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+         ga('create', 'UA-76104914-1', 'auto');
+         ga('send', 'pageview');
+
+       </script>
     </body>
 </html>
