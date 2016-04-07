@@ -24,11 +24,6 @@ Mountain Lion е с 5.3.10.
 [mamp-downloads]: http://www.mamp.info/en/downloads/index.html
 [php-osx-downloads]: http://php-osx.liip.ch/
 
----
-isChild: true
-anchor:  mac_setup
----
-
 ## Mac Setup {#mac_setup_title}
 
 OSX идва с пакет на PHP, който обикновено не е последната версия на PHP. Lion идва с PHP 5.3.6, Mountain Lion е с 5.3.10.
